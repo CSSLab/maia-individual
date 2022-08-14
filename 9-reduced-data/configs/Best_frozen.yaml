@@ -1,0 +1,56 @@
+%YAML 1.2
+---
+dataset:
+  name: ''
+  train_path: ''
+  validate_path: ''
+gpu: 3
+model:
+  back_prop_blocks: 3
+  filters: 64
+  keep_weights: true
+  path: maia/1700
+  residual_blocks: 6
+  se_ratio: 8
+training:
+  batch_size: 16
+  checkpoint_small_steps:
+  - 100
+  - 200
+  - 400
+  - 800
+  - 1600
+  - 2500
+  checkpoint_steps: 5000
+  lr_boundaries:
+  - 50000
+  - 110000
+  - 160000
+  lr_values:
+  - 1.0e-05
+  - 1.0e-06
+  - 1.0e-07
+  - 1.0e-08
+  num_batch_splits: 1
+  policy_loss_weight: 1.0
+  precision: half
+  shuffle_size: 256
+  small_mode: true
+  test_small_boundaries:
+  - 20000
+  - 40000
+  - 60000
+  - 80000
+  - 100000
+  test_small_steps:
+  - 100
+  - 200
+  - 400
+  - 800
+  - 1600
+  - 2500
+  test_steps: 2000
+  total_steps: 200000
+  train_avg_report_steps: 50
+  value_loss_weight: 1.0
+...

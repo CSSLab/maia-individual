@@ -1,0 +1,37 @@
+%YAML 1.2
+---
+gpu: 0
+
+dataset:
+    path: 'path to player data'
+    #name: ''
+
+training:
+    precision: 'half'
+    batch_size: 256
+    num_batch_splits: 1
+    test_steps: 2000
+    train_avg_report_steps: 50
+    total_steps: 150000
+    checkpoint_steps: 500
+    shuffle_size: 256
+    lr_values:
+        - 0.01
+        - 0.001
+        - 0.0001
+        - 0.00001
+    lr_boundaries:
+        - 35000
+        - 80000
+        - 110000
+    policy_loss_weight: 1.0
+    value_loss_weight: 1.0
+
+model:
+  filters: 64
+  residual_blocks: 6
+  se_ratio: 8
+  path: "maia-1900"
+  keep_weights: true
+  back_prop_blocks: 99
+...
